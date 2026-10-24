@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Arishma Solutions builds fast, low-cost Apify Actors for Instagram, TikTok, Facebook, LinkedIn, YouTube and Google Maps — clean data, pay-per-result pricing." />
+<link rel="icon" href="data:," />
+<title>Arishma Solutions — Apify Scrapers & Data APIs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --bg-alt:#f5f7fa;
+  --surface:#ffffff;
+  --surface-2:#eef2f7;
+  --ink:#0c1f38;
+  --ink-2:#22344f;
+  --muted:#5b6d84;
+  --line:#dde4ec;
+  --navy:#0a2342;
+  --navy-2:#0f2f57;
+  --navy-3:#14365f;
+  --teal:#0a9a94;
+  --teal-dark:#07837f;
+  --teal-light:#e6f4f3;
+  --amber:#e8a317;
+  --amber-bg:#fdf3d7;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(10,35,66,.08);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#071426;
+    --bg-alt:#0a1c33;
+    --surface:#0d233f;
+    --surface-2:#122a4a;
+    --ink:#edf2f8;
+    --ink-2:#d6deea;
+    --muted:#9fb0c3;
+    --line:#1e3a5c;
+    --teal-light:#0f2f3a;
+    --amber-bg:#2d240e;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Manrope',system-ui,sans-serif;line-height:1.08;letter-spacing:-.02em;color:var(--ink);margin:0}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-family:'Manrope',sans-serif;font-size:15px;padding:13px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:.18s;white-space:nowrap}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{background:#eef6f6}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal-dark)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-2)}
+
+/* Header */
+.header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{width:42px;height:42px;border-radius:11px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:.02em;font-size:16px;position:relative;overflow:hidden;flex:0 0 auto}
+.mark:after{content:"";position:absolute;right:-10px;bottom:-14px;width:28px;height:28px;background:var(--teal);border-radius:50%;opacity:.95}
+.mark span{position:relative;z-index:1}
+.brand-text{line-height:1}
+.brand-text strong{font-family:'Manrope',sans-serif;font-size:18px;letter-spacing:-.02em;display:block}
+.brand-text small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.nav{display:flex;gap:28px;font-size:14.5px;font-weight:600;color:var(--ink-2)}
+.nav a:hover{color:var(--teal-dark)}
+.header-cta{display:flex;gap:10px;align-items:center}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:9px 11px;cursor:pointer;color:var(--ink)}
+@media(max-width:860px){.nav{display:none}.header .btn-teal{display:none}.menu-btn{display:block}.nav.open{display:flex;position:absolute;top:71px;left:20px;right:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;flex-direction:column;gap:14px;box-shadow:var(--shadow)}}
+
+/* Hero */
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 80% 70% at 30% 20%,black 30%,transparent 75%)}
+.hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;padding:72px 0 64px;align-items:center}
+@media(max-width:900px){.hero-in{grid-template-columns:1fr;padding:48px 0 40px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);color:#cfe8e6;padding:7px 12px;border-radius:999px;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.eyebrow i{width:7px;height:7px;background:#2dd4bf;border-radius:50%;display:block}
+.hero h1{color:#fff;font-size:clamp(38px,5vw,58px);font-weight:800;margin:20px 0 18px}
+.hero h1 em{font-style:normal;color:#2dd4bf}
+.hero p.lead{color:#c2d0e2;font-size:18px;line-height:1.65;max-width:560px;margin:0 0 28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+.stat strong{font-family:'Manrope',sans-serif;font-size:26px;display:block;line-height:1;color:#fff}
+.stat span{font-size:13px;color:#9db0c6}
+/* Dashboard mock */
+.mock{background:#0d2c52;border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:18px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.mock-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)}
+.mock-head b{font-family:'Manrope',sans-serif;font-size:14px}
+.pill{font-size:11px;font-weight:800;letter-spacing:.06em;background:#063f3d;color:#5eead4;padding:5px 9px;border-radius:999px;text-transform:uppercase}
+.mock-row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13.5px}
+.mock-row:last-child{border:0}
+.mock-row span{color:#9db0c6}
+.mock-row b{color:#fff;font-weight:600;text-align:right}
+.bar{height:7px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden;margin-top:14px}
+.bar i{display:block;height:100%;width:78%;background:linear-gradient(90deg,#0a9a94,#2dd4bf);border-radius:999px}
+.mock-foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{font-size:12px;font-weight:600;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);padding:6px 10px;border-radius:999px;color:#dbe6f2}
+
+/* Platform strip */
+.strip{border-bottom:1px solid var(--line);background:var(--bg)}
+.strip-in{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 0}
+.strip-in span.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+.plat{font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.plat b{color:var(--teal-dark)}
+
+/* Sections */
+section{padding:72px 0}
+section.alt{background:var(--bg-alt)}
+.sec-head{max-width:680px;margin-bottom:36px}
+.sec-head h2{font-size:clamp(28px,3.4vw,40px);font-weight:800;margin-bottom:12px}
+.sec-head p{color:var(--muted);font-size:17px;margin:0}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--teal-dark);margin-bottom:10px}
+
+/* Services - editorial list, not uniform cards */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+@media(max-width:800px){.services{grid-template-columns:1fr}}
+.svc{padding:28px;border-bottom:1px solid var(--line)}
+.svc:nth-child(odd){border-right:1px solid var(--line)}
+@media(max-width:800px){.svc:nth-child(odd){border-right:0}}
+.svc-icon{width:46px;height:46px;border-radius:12px;background:var(--teal-light);display:grid;place-items:center;font-size:22px;margin-bottom:14px}
+.svc h3{font-size:18px;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:15px;margin:0}
+
+/* Actors */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.fbtn{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-size:14px;cursor:pointer;font-family:'Manrope',sans-serif}
+.fbtn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.actors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:980px){.actors{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.actors{grid-template-columns:1fr}}
+.actor{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px}
+.actor-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.badge{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink-2)}
+.badge.live{background:#dcfce7;color:#166534}
+@media(prefers-color-scheme:dark){.badge.live{background:#123524;color:#86efac}}
+.badge.soon{background:var(--amber-bg);color:#92400e}
+.actor h3{font-size:18px;line-height:1.25}
+.actor p{color:var(--muted);font-size:14.5px;margin:0;flex:1}
+.actor-meta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.price{font-family:'Manrope',sans-serif;font-weight:800}
+.price small{display:block;font-family:'Inter',sans-serif;font-weight:500;color:var(--muted);font-size:12px}
+.actor-link{font-weight:700;font-size:14px;color:var(--teal-dark)}
+.actor-link:hover{text-decoration:underline}
+
+/* Calculator + Why */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+.calc{background:var(--navy);color:#fff;border-radius:18px;padding:28px}
+.calc h3{color:#fff;font-size:22px;margin-bottom:8px}
+.calc p{color:#b9c9dc;font-size:14.5px;margin:0 0 20px}
+.calc label{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#9db0c6;display:block;margin:16px 0 8px}
+.calc select,.calc input[type=number]{width:100%;padding:13px 14px;border-radius:11px;border:1px solid rgba(255,255,255,.2);background:#0f2f57;color:#fff;font-size:16px;font-family:inherit}
+.calc input[type=range]{width:100%;accent-color:#2dd4bf}
+.calc-out{margin-top:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.calc-out strong{font-family:'Manrope',sans-serif;font-size:28px;color:#fff}
+.calc-out span{color:#9db0c6;font-size:13px;display:block}
+.why-list{display:grid;gap:16px}
+.why{display:flex;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.why-num{width:38px;height:38px;flex:0 0 auto;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px}
+.why h4{font-size:16px;margin-bottom:4px}
+.why p{color:var(--muted);font-size:14.5px;margin:0}
+
+/* Process */
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:800px){.process{grid-template-columns:1fr}}
+.step{padding:26px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line);position:relative}
+.step span{font-family:'Manrope',sans-serif;font-size:42px;font-weight:800;color:var(--teal-light);-webkit-text-stroke:1px var(--teal);line-height:1;display:block;margin-bottom:14px}
+@media(prefers-color-scheme:dark){.step span{color:transparent}}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px;margin:0}
+.step code{background:var(--surface-2);padding:2px 7px;border-radius:6px;font-size:13px}
+
+/* Use cases */
+.cases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:980px){.cases{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.cases{grid-template-columns:1fr}}
+.case{border-top:3px solid var(--teal);padding:20px 4px 0}
+.case h3{font-size:17px;margin-bottom:8px}
+.case p{color:var(--muted);font-size:14.5px;margin:0}
+
+/* FAQ */
+.faq{max-width:780px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:10px;padding:0 18px}
+summary{cursor:pointer;font-family:'Manrope',sans-serif;font-weight:700;padding:17px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+details p{color:var(--muted);margin:0 0 17px;font-size:15px}
+
+/* CTA / Contact */
+.cta{background:var(--navy);border-radius:20px;padding:38px;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;color:#fff}
+@media(max-width:860px){.cta{grid-template-columns:1fr;padding:28px}}
+.cta h2{color:#fff;font-size:30px;margin-bottom:12px}
+.cta p{color:#b9c9dc;margin:0 0 20px}
+.contact-lines{display:grid;gap:12px;font-size:15px}
+.contact-lines a{color:#5eead4;font-weight:600}
+.contact-lines a:hover{text-decoration:underline}
+.form{background:#fff;border-radius:16px;padding:22px;color:#0c1f38}
+@media(prefers-color-scheme:dark){.form{background:#0d233f;color:#edf2f8}}
+.form label{font-size:13px;font-weight:700;display:block;margin:12px 0 6px}
+.form input,.form select,.form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-family:inherit;font-size:15px}
+.form textarea{min-height:96px;resize:vertical}
+.form .btn{width:100%;margin-top:16px}
+.form-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:10px}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:36px 0 28px;background:var(--bg-alt)}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;font-weight:600;color:var(--muted)}
+.foot-links a:hover{color:var(--teal-dark)}
+.foot small{color:var(--muted);display:block;margin-top:18px}
+.theme-swatches{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.swatch{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 10px 6px 6px;border-radius:999px}
+.swatch i{width:18px;height:18px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.08)}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap header-in">
+    <a class="brand" href="#top" aria-label="Arishma Solutions home">
+      <div class="mark"><span>AS</span></div>
+      <div class="brand-text"><strong>Arishma Solutions</strong><small>Data • APIs • Automation</small></div>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#actors">Actors</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-teal" href="https://apify.com/arisma_tech" target="_blank" rel="noopener">Visit Apify Store →</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰ Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <span class="eyebrow"><i></i> Apify Actors • Ready to run</span>
+        <h1>Social &amp; web data, <em>without the scraping headache.</em></h1>
+        <p class="lead">We build fast, low-cost Apify Actors for Instagram, TikTok, Facebook, LinkedIn, YouTube and Google Maps. You set the input — you get clean, structured data in JSON, CSV or Excel. No proxies to manage, no code to maintain.</p>
+        <div class="hero-actions">
+          <a class="btn btn-teal" href="#actors">Browse Actors</a>
+          <a class="btn btn-white" href="#contact">Request a custom scraper</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>15</strong><span>Actors built</span></div>
+          <div class="stat"><strong>12</strong><span>Public on Apify</span></div>
+          <div class="stat"><strong>6+</strong><span>Platforms covered</span></div>
+          <div class="stat"><strong>Pay-per-result</strong><span>No monthly lock-in</span></div>
+        </div>
+      </div>
+      <div class="mock" aria-label="Example Actor run preview">
+        <div class="mock-head"><b>▶ Instagram Profile &amp; Posts</b><span class="pill">Example output</span></div>
+        <div class="mock-row"><span>Input</span><b>3 public profiles</b></div>
+        <div class="mock-row"><span>Results</span><b>Sample: posts extracted</b></div>
+        <div class="mock-row"><span>Fields</span><b>caption · likes · comments · media</b></div>
+        <div class="mock-row"><span>Export</span><b>JSON · CSV · Excel · API</b></div>
+        <div class="bar"><i></i></div>
+        <div class="mock-foot"><span class="chip">✓ No login required*</span><span class="chip">✓ Proxy handled</span><span class="chip">✓ Schedule runs</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLATFORMS -->
+  <div class="strip">
+    <div class="wrap strip-in">
+      <span class="label">We extract from</span>
+      <span class="plat"><b>◆</b> Instagram</span>
+      <span class="plat"><b>◆</b> TikTok</span>
+      <span class="plat"><b>◆</b> Facebook</span>
+      <span class="plat"><b>◆</b> LinkedIn</span>
+      <span class="plat"><b>◆</b> YouTube</span>
+      <span class="plat"><b>◆</b> Google Maps</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">What we do</div>
+        <h2>Built for teams who need data, not maintenance</h2>
+        <p>Off-the-shelf Actors for the platforms you already use — and custom development when you need something specific.</p>
+      </div>
+      <div class="services">
+        <article class="svc"><div class="svc-icon">📸</div><h3>Social media scrapers</h3><p>Profiles, posts, comments, followers and search results from Instagram, TikTok, Facebook and YouTube — structured and deduped.</p></article>
+        <article class="svc"><div class="svc-icon">🎯</div><h3>Lead generation data</h3><p>Business leads from Google Maps and the web, enriched and ready for outreach — names, websites, contact details and ratings where publicly available.</p></article>
+        <article class="svc"><div class="svc-icon">💼</div><h3>Jobs &amp; market data</h3><p>LinkedIn job listings with title, company, location, applicants and full descriptions — ideal for job boards, recruiters and market research.</p></article>
+        <article class="svc"><div class="svc-icon">🏷️</div><h3>Price &amp; competitor monitoring</h3><p>Track prices, listings and competitor pages on a schedule, so changes surface automatically instead of in manual checks.</p></article>
+        <article class="svc"><div class="svc-icon">🛠️</div><h3>Custom Actor development</h3><p>Need a source we don’t cover yet? We design, build and publish a private or public Actor to your exact fields and schedule.</p></article>
+        <article class="svc"><div class="svc-icon">⚙️</div><h3>REST APIs &amp; microservices</h3><p>Beyond Apify: REST APIs and microservices that consume, clean and serve your data to your own product or dashboard.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTORS -->
+  <section id="actors" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">On the Apify Store</div>
+        <h2>Popular Actors</h2>
+        <p>Run them in the Apify Console, schedule them, or call them via API. You only pay for the results you get.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter actors">
+        <button class="fbtn active" data-filter="all">All</button>
+        <button class="fbtn" data-filter="instagram">Instagram</button>
+        <button class="fbtn" data-filter="facebook">Facebook</button>
+        <button class="fbtn" data-filter="linkedin">LinkedIn</button>
+        <button class="fbtn" data-filter="tiktok">TikTok</button>
+        <button class="fbtn" data-filter="leads">Leads</button>
+      </div>
+      <div class="actors" id="actorGrid">
+        <article class="actor" data-cat="instagram">
+          <div class="actor-top"><span class="badge">Instagram</span><span class="badge live">Live</span></div>
+          <h3>Instagram Profile &amp; Posts Scraper</h3>
+          <p>Extract profiles and posts at scale — captions, engagement, media URLs and profile details from public accounts.</p>
+          <div class="actor-meta"><div class="price">$1.50<small>per 1,000 results</small></div><a class="actor-link" href="https://apify.com/arisma_tech" target="_blank" rel="noopener">Try on Apify →</a></div>
+        </article>
+        <article class="actor" data-cat="facebook">
+          <div class="actor-top"><span class="badge">Facebook</span><span class="badge live">Live</span></div>
+          <h3>Facebook Posts Scraper</h3>
+          <p>Collect posts from Pages and profiles — text, reactions, comments counts, shares and timestamps for analysis.</p>
+          <div class="actor-meta"><div class="price">Pay per result<small>See store for tiers</small></div><a class="actor-link" href="https://apify.com/arisma_tech" target="_blank" rel="noopener">Try on Apify →</a></div>
+        </article>
+        <article class="actor" data-cat="facebook">
+          <div class="actor-top"><span class="badge">Facebook</span><span class="badge live">Live</span></div>
+          <h3>Facebook Profile Scraper</h3>
+          <p>Public profile data in a clean dataset — built for research, enrichment and audience analysis workflows.</p>
+          <div class="actor-meta"><div class="price">Pay per result<small>See store for tiers</small></div><a class="actor-link" href="https://apify.com/arisma_tech" target="_blank" rel="noopener">Try on Apify →</a></div>
+        </article>
+        <article class="actor" data-cat="linkedin">
+          <div class="actor-top"><span class="badge">LinkedIn</span><span class="badge live">Live • New</span></div>
+          <h3>LinkedIn Job Scraper</h3>
+          <p>Search jobs by keyword and location — full descriptions, employment type, experience level and applicant counts. No login or cookies needed.</p>
+          <div class="actor-meta"><div class="price">$3.00<small>per 1,000 jobs</small></div><a class="actor-link" href="https://apify.com/arisma_tech/linkedin-job-scraper" target="_blank" rel="noopener">Try on Apify →</a></div>
+        </article>
+        <article class="actor" data-cat="tiktok">
+          <div class="actor-top"><span class="badge">TikTok</span><span class="badge soon">In development</span></div>
+          <h3>TikTok Search Scraper</h3>
+          <p>Search-based TikTok extraction for trend, creator and hashtag research. Join the store to be notified at launch.</p>
+          <div class="actor-meta"><div class="price">Coming soon<small>Follow the store</small></div><a class="actor-link" href="https://apify.com/arisma_tech" target="_blank" rel="noopener">Follow store →</a></div>
+        </article>
+        <article class="actor" data-cat="leads">
+          <div class="actor-top"><span class="badge">Google Maps</span><span class="badge soon">In development</span></div>
+          <h3>Google Maps Leads + Email Enrichment</h3>
+          <p>Turn Maps searches into lead lists — business details enriched with publicly available contact emails for outreach.</p>
+          <div class="actor-meta"><div class="price">Coming soon<small>Follow the store</small></div><a class="actor-link" href="https://apify.com/arisma_tech" target="_blank" rel="noopener">Follow store →</a></div>
+        </article>
+      </div>
+      <p style="color:var(--muted);font-size:13.5px;margin-top:16px">* Login requirements vary by Actor and target — each store listing states exactly what’s needed before you run.</p>
+    </div>
+  </section>
+
+  <!-- PRICING / CALCULATOR -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Transparent pricing</div>
+        <h2>Pay for results. Nothing else.</h2>
+        <p>No subscriptions for our Actors themselves — Apify’s pay-per-result model means a small test costs cents, and scale stays predictable.</p>
+      </div>
+      <div class="split">
+        <div class="calc" aria-label="Cost calculator">
+          <h3>Estimate your cost</h3>
+          <p>Drag the volume or type a number to see what a run would cost on our two most popular Actors.</p>
+          <label for="calcActor">Actor</label>
+          <select id="calcActor">
+            <option value="1.5">Instagram Profile &amp; Posts — $1.50 / 1k</option>
+            <option value="3">LinkedIn Job Scraper — $3.00 / 1k</option>
+          </select>
+          <label for="calcRange">Results needed — <span id="calcCountLabel">5,000</span></label>
+          <input type="range" id="calcRange" min="100" max="100000" step="100" value="5000">
+          <label for="calcNum">Or enter exact number</label>
+          <input type="number" id="calcNum" min="0" step="100" value="5000">
+          <div class="calc-out"><div><span>Estimated Actor cost</span><strong id="calcTotal">$7.50</strong></div><div style="text-align:right"><span>Per result</span><strong id="calcPer" style="font-size:18px">$0.0015</strong></div></div>
+          <p style="margin-top:14px;font-size:12.5px">Plus Apify platform usage (compute + proxy) as shown in the Apify Console for each run. Final tier pricing is confirmed on each Actor’s store page.</p>
+        </div>
+        <div class="why-list">
+          <div class="why"><div class="why-num">1</div><div><h4>Start free, test small</h4><p>Run 100 results first, inspect the fields, then scale. You’re never billed for a scraper that doesn’t fit.</p></div></div>
+          <div class="why"><div class="why-num">2</div><div><h4>Proxies &amp; retries handled</h4><p>Our Actors are built to handle rate limits and proxy rotation inside Apify — you don’t buy or manage infrastructure.</p></div></div>
+          <div class="why"><div class="why-num">3</div><div><h4>Clean, deduped output</h4><p>Consistent field names, deduped rows, and exports to JSON, CSV, Excel or straight into your API / Google Sheets.</p></div></div>
+          <div class="why"><div class="why-num">4</div><div><h4>Real support from the builder</h4><p>Questions go to the person who built the Actor. Custom fields or a private Actor? Ask — that’s most of our work.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="alt">
+    <div class="wrap">
+      <div class="sec-head"><div class="kicker">How it works</div><h2>From input to dataset in minutes</h2></div>
+      <div class="process">
+        <div class="step"><span>01</span><h3>Pick an Actor</h3><p>Open our <a href="https://apify.com/arisma_tech" target="_blank" rel="noopener" style="color:var(--teal-dark);font-weight:700">Apify Store page</a> and choose the platform and data you need.</p></div>
+        <div class="step"><span>02</span><h3>Set your input</h3><p>Paste usernames, URLs, keywords or locations. Example: <code>software engineer + London</code> for jobs, or a list of profiles for Instagram.</p></div>
+        <div class="step"><span>03</span><h3>Download or automate</h3><p>Get JSON / CSV / Excel, schedule recurring runs, or pull results via the Apify API into your own system.</p></div>
+      </div>
+
+      <div style="margin-top:56px">
+        <div class="sec-head"><div class="kicker">Who it’s for</div><h2>Common use cases</h2></div>
+        <div class="cases">
+          <div class="case"><h3>Marketing teams</h3><p>Creator research, hashtag and competitor content tracking, campaign monitoring across Instagram, TikTok and Facebook.</p></div>
+          <div class="case"><h3>Recruiters &amp; job boards</h3><p>Fresh LinkedIn job listings aggregated daily — with full descriptions and apply links, no manual copying.</p></div>
+          <div class="case"><h3>Lead generation agencies</h3><p>Local business leads from Maps and the web, structured for CRM import and outreach campaigns.</p></div>
+          <div class="case"><h3>Founders &amp; analysts</h3><p>Price checks, review mining and market snapshots — without hiring a data team or maintaining scrapers.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><div class="kicker">Questions</div><h2>Before you run your first Actor</h2></div>
+      <div class="faq">
+        <details><summary>Do I need an Apify account? <span>+</span></summary><p>Yes — our Actors run on Apify. A free Apify account is enough to test; you pay per result plus Apify’s platform usage shown transparently in the Console.</p></details>
+        <details><summary>Do I need to provide my social media login? <span>+</span></summary><p>For most Actors, no — for example, the LinkedIn Job Scraper uses public data with no login or cookies. If an Actor ever needs a session for a specific target, its store page says so clearly before you run it.</p></details>
+        <details><summary>What format do I get the data in? <span>+</span></summary><p>Every run produces a dataset you can download as JSON, CSV or Excel, or access via API. Field lists are documented on each Actor’s page.</p></details>
+        <details><summary>Can you build a scraper for a site you don’t list? <span>+</span></summary><p>Yes — custom Actor development is a core service. Tell us the source, the fields you need, and how often it should run, and we’ll scope it for you.</p></details>
+        <details><summary>Can I schedule recurring extraction? <span>+</span></summary><p>Yes. Apify schedules let any Actor run hourly, daily or weekly, with results delivered to storage, webhooks or integrations.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <h2>Tell us what data you need</h2>
+          <p>Custom scraper, a field added to an existing Actor, or a REST API to serve the data — send a short brief and we’ll reply with next steps and a clear price.</p>
+          <div class="contact-lines">
+            <div>✉️ Email — <a href="mailto:contact@arishmasolutions.com">contact@arishmasolutions.com</a></div>
+            <div>🛒 Apify Store — <a href="https://apify.com/arisma_tech" target="_blank" rel="noopener">apify.com/arisma_tech</a></div>
+            <div>💼 LinkedIn — <a href="https://www.linkedin.com/company/arishmasolutions/" target="_blank" rel="noopener">Arishma Solutions</a></div>
+            <div>📸 Instagram — <a href="https://www.instagram.com/arishmasolutions" target="_blank" rel="noopener">@arishmasolutions</a></div>
+            <div>👍 Facebook — <a href="https://www.facebook.com/arishmasolutions/" target="_blank" rel="noopener">Arishma Solutions</a></div>
+          </div>
+          <div class="theme-swatches" aria-label="Brand colours">
+            <span class="swatch"><i style="background:#0a2342"></i> Deep Navy — trust</span>
+            <span class="swatch"><i style="background:#0a9a94"></i> Teal — action</span>
+            <span class="swatch"><i style="background:#e8a317"></i> Amber — highlight</span>
+            <span class="swatch"><i style="background:#f5f7fa"></i> Slate Mist — surfaces</span>
+          </div>
+        </div>
+        <form class="form" id="contactForm">
+          <h3 style="font-size:18px">Request a quote</h3>
+          <label for="fName">Your name</label>
+          <input id="fName" required placeholder="Your name" autocomplete="name">
+          <label for="fPlatform">Platform / source</label>
+          <select id="fPlatform">
+            <option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option><option>YouTube</option><option>Google Maps</option><option>Other website</option><option>REST API / custom project</option>
+          </select>
+          <label for="fMsg">What do you need?</label>
+          <textarea id="fMsg" required placeholder="e.g. I need 5,000 Instagram posts per week with captions and likes, delivered as CSV…"></textarea>
+          <button class="btn btn-teal" type="submit">Open in my email app →</button>
+          <div class="form-note">This opens your email app addressed to contact@arishmasolutions.com — nothing is stored on this page.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#top"><div class="mark"><span>AS</span></div><div class="brand-text"><strong>Arishma Solutions</strong><small>Data • APIs • Automation</small></div></a>
+      <nav class="foot-links">
+        <a href="https://apify.com/arisma_tech" target="_blank" rel="noopener">Apify Store</a>
+        <a href="https://www.linkedin.com/company/arishmasolutions/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/arishmasolutions" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/arishmasolutions/" target="_blank" rel="noopener">Facebook</a>
+        <a href="mailto:contact@arishmasolutions.com">contact@arishmasolutions.com</a>
+      </nav>
+    </div>
+    <small>© 2026 Arishma Solutions • arishmasolutions.com — Apify Actors, web data extraction &amp; REST APIs. All platform names belong to their respective owners; Actors extract publicly available data — use results in line with each platform’s terms and applicable law.</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn'), nav=document.getElementById('mainNav');
+  menuBtn.addEventListener('click',function(){var open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',open?'true':'false');});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');}});
+
+  // Actor filter
+  var fbtns=document.querySelectorAll('.fbtn'), cards=document.querySelectorAll('#actorGrid .actor');
+  fbtns.forEach(function(b){b.addEventListener('click',function(){
+    fbtns.forEach(function(x){x.classList.remove('active')}); b.classList.add('active');
+    var f=b.getAttribute('data-filter');
+    cards.forEach(function(c){c.style.display=(f==='all'||c.getAttribute('data-cat')===f)?'':'none';});
+  });});
+
+  // Calculator
+  var sel=document.getElementById('calcActor'), range=document.getElementById('calcRange'), num=document.getElementById('calcNum'), label=document.getElementById('calcCountLabel'), total=document.getElementById('calcTotal'), per=document.getElementById('calcPer');
+  function fmt(n){return n.toLocaleString('en-US');}
+  function calc(from){
+    var rate=parseFloat(sel.value);
+    var n= from==='range'? parseInt(range.value,10): parseInt(num.value||'0',10);
+    if(isNaN(n)||n<0)n=0;
+    if(from==='range'){num.value=n;} else {range.value=Math.min(100000,Math.max(100,n||100));}
+    label.textContent=fmt(n);
+    total.textContent='$'+(n*rate/1000).toFixed(2);
+    per.textContent='$'+(rate/1000).toFixed(4);
+  }
+  sel.addEventListener('change',function(){calc('range')});
+  range.addEventListener('input',function(){calc('range')});
+  num.addEventListener('input',function(){calc('num')});
+  calc('range');
+
+  // Contact form -> mailto
+  document.getElementById('contactForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('fName').value.trim();
+    var plat=document.getElementById('fPlatform').value;
+    var msg=document.getElementById('fMsg').value.trim();
+    var subject=encodeURIComponent('Quote request — '+plat+' — '+name);
+    var body=encodeURIComponent('Hi Arishma Solutions,\n\nName: '+name+'\nPlatform / source: '+plat+'\n\nWhat I need:\n'+msg+'\n');
+    window.location.href='mailto:contact@arishmasolutions.com?subject='+subject+'&body='+body;
+  });
+})();
+</script>
+</body>
+</html>
