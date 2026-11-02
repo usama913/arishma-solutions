@@ -303,7 +303,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 28px;background:var(--bg-
         <article class="svc"><div class="svc-icon">📸</div><h3>Social media scrapers</h3><p>Profiles, posts, comments, followers and search results from Instagram, TikTok, Facebook and YouTube — structured and deduped.</p></article>
         <article class="svc"><div class="svc-icon">🎯</div><h3>Lead generation data</h3><p>Business leads from Google Maps and the web, enriched and ready for outreach — names, websites, contact details and ratings where publicly available.</p></article>
         <article class="svc"><div class="svc-icon">💼</div><h3>Jobs &amp; market data</h3><p>LinkedIn job listings with title, company, location, applicants and full descriptions — ideal for job boards, recruiters and market research.</p></article>
-        <article class="svc"><div class="svc-icon">🏷️</div><h3>Price &amp; competitor monitoring</h3><p>Track prices, listings and competitor pages on a schedule, so changes surface automatically instead of in manual checks.</p></article>
+        <article class="svc"><div class="svc-icon">🏷️</div><h3>Price Tracker — price, stock &amp; seller monitoring</h3><p>Our Multi-Retailer Price Tracker watches product URLs on Amazon, Walmart, Best Buy and any Shopify store, and flags price drops, MAP violations, out-of-stock and seller changes — on a schedule, by webhook or API.</p></article>
         <article class="svc"><div class="svc-icon">🛠️</div><h3>Custom Actor development</h3><p>Need a source we don’t cover yet? We design, build and publish a private or public Actor to your exact fields and schedule.</p></article>
         <article class="svc"><div class="svc-icon">⚙️</div><h3>REST APIs &amp; microservices</h3><p>Beyond Apify: REST APIs and microservices that consume, clean and serve your data to your own product or dashboard.</p></article>
       </div>
@@ -325,6 +325,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 28px;background:var(--bg-
         <button class="fbtn" data-filter="linkedin">LinkedIn</button>
         <button class="fbtn" data-filter="tiktok">TikTok</button>
         <button class="fbtn" data-filter="leads">Leads</button>
+        <button class="fbtn" data-filter="price">Price tracking</button>
       </div>
       <div class="actors" id="actorGrid">
         <article class="actor" data-cat="instagram">
@@ -350,6 +351,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 28px;background:var(--bg-
           <h3>LinkedIn Job Scraper</h3>
           <p>Search jobs by keyword and location — full descriptions, employment type, experience level and applicant counts. No login or cookies needed.</p>
           <div class="actor-meta"><div class="price">$3.00<small>per 1,000 jobs</small></div><a class="actor-link" href="https://apify.com/arisma_tech/linkedin-job-scraper" target="_blank" rel="noopener">Try on Apify →</a></div>
+        </article>
+        <article class="actor" data-cat="price">
+          <div class="actor-top"><span class="badge">Price tracking</span><span class="badge live">Live</span></div>
+          <h3>Multi-Retailer Price Tracker</h3>
+          <p>Track price, stock and seller for product URLs across Amazon, Walmart, Best Buy and any Shopify store in one run — with scheduled runs, PRICE_DROP, MAP_VIOLATION, OUT_OF_STOCK, BACK_IN_STOCK and SELLER_CHANGED alerts by webhook, plus JSON, CSV, Excel and Google Sheets exports. Failed products are never charged.</p>
+          <div class="actor-meta"><div class="price">$3.00<small>per 1,000 tracked products</small></div><a class="actor-link" href="https://apify.com/arisma_tech/multi-retailer-price-tracker-apify-actor" target="_blank" rel="noopener">Try on Apify →</a></div>
         </article>
         <article class="actor" data-cat="tiktok">
           <div class="actor-top"><span class="badge">TikTok</span><span class="badge soon">In development</span></div>
@@ -379,11 +386,12 @@ footer{border-top:1px solid var(--line);padding:36px 0 28px;background:var(--bg-
       <div class="split">
         <div class="calc" aria-label="Cost calculator">
           <h3>Estimate your cost</h3>
-          <p>Drag the volume or type a number to see what a run would cost on our two most popular Actors.</p>
+          <p>Drag the volume or type a number to see what a run would cost on three of our most popular Actors.</p>
           <label for="calcActor">Actor</label>
           <select id="calcActor">
             <option value="1.5">Instagram Profile &amp; Posts — $1.50 / 1k</option>
             <option value="3">LinkedIn Job Scraper — $3.00 / 1k</option>
+            <option value="3">Multi-Retailer Price Tracker — $3.00 / 1k</option>
           </select>
           <label for="calcRange">Results needed — <span id="calcCountLabel">5,000</span></label>
           <input type="range" id="calcRange" min="100" max="100000" step="100" value="5000">
